@@ -1,34 +1,40 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+
 
 @Entity
-@Table (name="employes")
-public class Employe {
+// He corregido el nombre de la tabla a "employees" (opcional, pero más común)
+@Table(name="employees")
+public class Employee {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private  int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @Column (name = "first_name")
-    private  String firsName;
-    @Column (name = "pa_surname")
-    private  String paSurname;
-    @Column (name = "ma_surname")
-    private  String maSurname;
+    @Column(name = "first_name")
+    private String firstName;
 
-    private  String email;
-    private  Float Salary;
+    @Column(name = "pa_surname")
+    private String paSurname;
 
-    public Employe() {
+    @Column(name = "ma_surname")
+    private String maSurname;
+
+    private String email;
+    private Float salary;
+
+    public Employee() {
     }
 
-    public Employe(int id, String firsName, String paSurname, String maSurname, String email, Float salary) {
+    // Constructor corregido
+    public Employee(int id, String firstName, String paSurname, String maSurname, String email, Float salary) {
         this.id = id;
-        this.firsName = firsName;
+        this.firstName = firstName;
         this.paSurname = paSurname;
         this.maSurname = maSurname;
         this.email = email;
-        Salary = salary;
+        this.salary = salary;
     }
 
     public int getId() {
@@ -39,12 +45,12 @@ public class Employe {
         this.id = id;
     }
 
-    public String getFirsName() {
-        return firsName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirsName(String firsName) {
-        this.firsName = firsName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getPaSurname() {
@@ -72,22 +78,22 @@ public class Employe {
     }
 
     public Float getSalary() {
-        return Salary;
+        return salary;
     }
 
     public void setSalary(Float salary) {
-        Salary = salary;
+        this.salary = salary;
     }
 
     @Override
     public String toString() {
-        return "Employe{" +
+        return "Employee{" +
                 "id=" + id +
-                ", firsName='" + firsName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", paSurname='" + paSurname + '\'' +
                 ", maSurname='" + maSurname + '\'' +
                 ", email='" + email + '\'' +
-                ", Salary=" + Salary +
+                ", salary=" + salary +
                 '}';
     }
 }
